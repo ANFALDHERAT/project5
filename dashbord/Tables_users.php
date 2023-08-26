@@ -107,7 +107,14 @@ if ($loggedInUserRole!="admin") {
                 <a class="nav-link" href="Tables_Review.php">
                 <i class="fas fa-fw fa-comment"></i>
                 <span>Review</span></a>
-            </li>            
+            </li> 
+
+            <!-- Nav Item - Order -->
+            <li class="nav-item">
+                <a class="nav-link" href="Tables_Order.php">
+                <i class="fas fa-fw fa-truck"></i>
+                    <span>Order</span></a>
+            </li>                       
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -164,14 +171,14 @@ if ($loggedInUserRole!="admin") {
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Users</h1>
-                    <p class="mb-4">here where you can add new User 
+                    <p class="mb-4">here where you can edit and delete User
                         <!-- <a class=" d-sm-inline-block btn btn-sm btn-primary shadow-sm float-right" target="_blank"href="add_user.php">add new User</a> -->
                         </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables For Users</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -230,11 +237,11 @@ if ($result->num_rows > 0) {
         echo '<td>';
         echo '<form action="edit_user.php" method="post">';
         echo '<input type="hidden" name="user_id" value="' . $row["user_id"] . '">';
-        echo '<button class="btn btn-primary" type="submit" name="Edit" class=" d-sm-inline-block btn btn-sm btn-secondary shadow-sm">Edit</button>';
-        echo '</form>';
-        echo '<form  id="deleteForm_' . $row["user_id"] . '" method="post" action="delete_user.php">';
+        echo '<button style="width: 100%" class="btn btn-primary" type="submit" name="Edit" class=" d-sm-inline-block btn btn-sm btn-secondary shadow-sm">Edit</button>';
+        echo '</form><br>';
+        echo '<form   id="deleteForm_' . $row["user_id"] . '" method="post" action="delete_user.php">';
         echo '<input type="hidden" name="user_id" value="' . $row["user_id"] . '">';
-        echo '<button class="btn btn-danger" type="button" name="Delete" onclick="confirmDelete(' . $row["user_id"] . ')">Delete</button>';
+        echo '<button style="width: 100%" class="btn btn-danger" type="button" name="Delete" onclick="confirmDelete(' . $row["user_id"] . ')" >Delete</button>';
         echo '</form>';
         echo '</td>';
         echo '</tr>';

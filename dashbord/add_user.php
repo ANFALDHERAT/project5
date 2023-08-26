@@ -100,7 +100,14 @@ if ($loggedInUserRole!="admin") {
                 <a class="nav-link" href="Tables_contact_us.php">
                 <i class="fas fa-fw fa-envelope"></i>
                 <span>Inquiries</span></a>
-            </li>            
+            </li>   
+            
+            <!-- Nav Item - Order -->
+            <li class="nav-item">
+                <a class="nav-link" href="Tables_Order.php">
+                <i class="fas fa-fw fa-truck"></i>
+                    <span>Order</span></a>
+            </li> 
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

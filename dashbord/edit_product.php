@@ -108,6 +108,14 @@ if ($loggedInUserRole!="admin") {
                 <i class="fas fa-fw fa-comment"></i>
                 <span>Review</span></a>
             </li> 
+
+            <!-- Nav Item - Order -->
+            <li class="nav-item">
+                <a class="nav-link" href="Tables_Order.php">
+                <i class="fas fa-fw fa-truck"></i>
+                    <span>Order</span></a>
+            </li> 
+            
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

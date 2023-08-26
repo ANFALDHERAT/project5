@@ -75,7 +75,7 @@ if ($loggedInUserRole!="admin") {
             
 
             <!-- Nav Item - Users -->
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="Tables_users.php">
                 <i class="fas fa-fw fa-user"></i>
                     <span>Users</span></a>
@@ -89,7 +89,7 @@ if ($loggedInUserRole!="admin") {
             </li>
 
             <!-- Nav Item - product -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="Tables_product.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Product</span></a>
@@ -101,20 +101,20 @@ if ($loggedInUserRole!="admin") {
                 <i class="fas fa-fw fa-envelope"></i>
                 <span>Inquiries</span></a>
             </li>  
-            
+
             <!-- Nav Item - review -->
             <li class="nav-item">
                 <a class="nav-link" href="Tables_Review.php">
                 <i class="fas fa-fw fa-comment"></i>
                 <span>Review</span></a>
-            </li> 
+            </li>    
 
             <!-- Nav Item - Order -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="Tables_Order.php">
                 <i class="fas fa-fw fa-truck"></i>
                     <span>Order</span></a>
-            </li> 
+            </li>         
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -170,77 +170,88 @@ if ($loggedInUserRole!="admin") {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Products</h1>
-                    <p class="mb-4">here where you can add, edit ,and delete product<a class=" d-sm-inline-block btn btn-sm btn-primary shadow-sm float-right" target="_blank"
-                            href="add_product.php">add new product</a></p>
+                    <h1 class="h3 mb-2 text-gray-800">Orders</h1>
+                    <p class="mb-4">here where you can edit and delete Orders
+                        </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables For Product</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables For Checkout</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Productuct</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Descreption</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Category</th>
+                                            <th>order_id</th>
+                                            <th>user_id</th>
+                                            <th>product_id</th>
+                                            <th>product_name</th>
+                                            <th>price</th>
+                                            <th>total</th>
+                                            <th>user_name</th>
+                                            <th>user_email</th>
+                                            <th>user_address</th>
+                                            <th>user_city</th>
+                                            <th>zip_code</th>
+                                            <th>phone</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Product_id</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Descreption</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Category</th>
+                                            <th>order_id</th>
+                                            <th>user_id</th>
+                                            <th>product_id</th>
+                                            <th>product_name</th>
+                                            <th>price</th>
+                                            <th>total</th>
+                                            <th>user_name</th>
+                                            <th>user_email</th>
+                                            <th>user_address</th>
+                                            <th>user_city</th>
+                                            <th>zip_code</th>
+                                            <th>phone</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                                          
+                                 
+
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ecommerce";
 
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT * FROM order_products";
 
-$sql = "SELECT products.*, Category.Category_name
-        FROM products
-        JOIN Category ON products.Category_id = Category.Category_id";
+
 $result = $conn->query($sql);
+
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '<tr>';
-        echo '<td>' . $row["product_id"] . '</td>'; 
-        echo '<td>' .'<img high="100px" width="100px" src="data:image/jpeg;base64,' . base64_encode($row["products_img"]) . '" alt="Image">'.'</td>';        
-        echo '<td>' . $row["products_name"] . '</td>'; 
-        echo '<td>' . $row["products_description"] . '</td>'; 
-        echo '<td>' . $row["products_quantity"] . '</td>'; 
-        echo '<td>' . $row["products_price"] . '</td>'; 
-        echo '<td>' . $row["Category_name"] . '</td>'; 
+        echo '<td>' . $row["order_id"] . '</td>'; 
+        echo '<td>' . $row["user_id"] . '</td>'; 
+        echo '<td>' . $row["products_id"] . '</td>'; 
+        echo '<td>' . $row["product_name"] . '</td>'; 
+        echo '<td>' . $row["price"] . '</td>'; 
+        echo '<td>' . $row["total"] . '</td>'; 
+        echo '<td>' . $row["user_name"] . '</td>'; 
+        echo '<td>' . $row["user_email"] . '</td>'; 
+        echo '<td>' . $row["user_address"] . '</td>'; 
+        echo '<td>' . $row["user_city"] . '</td>'; 
+        echo '<td>' . $row["zip_code"] . '</td>'; 
+        echo '<td>' . $row["phone"] . '</td>'; 
         echo '<td>';
-        echo '<form action="edit_product.php" method="post">';
-        echo '<input type="hidden" name="product_id" value="' . $row["product_id"] . '">';
-        echo '<button style="width: 100%" class="btn btn-primary" type="submit" name="Edit" class=" d-sm-inline-block btn btn-sm btn-secondary shadow-sm">Edit</button>';
-        echo '</form><br>';
-        echo '<form id="deleteForm_' . $row["product_id"] . '" method="post" action="delete_product.php">';
-        echo '<input type="hidden" name="product_id" value="' . $row["product_id"] . '">';
-        echo '<button style="width: 100%" class="btn btn-danger" type="button" name="Delete" onclick="confirmDelete(' . $row["product_id"] . ')">Delete</button>';
+        echo '<form  id="deleteForm_' . $row["order_id"]. '" method="post" action="delete_order.php">';
+        echo '<input type="hidden" name="order_id" value="'. $row["order_id"].'">';
+        echo '<button style="width: 100%" class="btn btn-danger" type="button" name="Delete" onclick="confirmDelete(' . $row["order_id"] . ')">Delete</button>';
         echo '</form>';
         echo '</td>';
         echo '</tr>';
@@ -248,10 +259,11 @@ if ($result->num_rows > 0) {
 } 
 $conn->close();
 ?>
+
 <script>
-function confirmDelete(productId) {
-    if (confirm("Are you sure you want to delete this Product?")) {
-        document.getElementById('deleteForm_' + productId).submit();
+function confirmDelete(userId) {
+    if (confirm("Are you sure you want to delete this User?")) {
+        document.getElementById('deleteForm_' + userId).submit();
     }
 }
 </script>                    
@@ -289,8 +301,8 @@ function confirmDelete(productId) {
         <i class="fas fa-angle-up"></i>
     </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -312,7 +324,6 @@ function confirmDelete(productId) {
             </div>
         </div>
     </div>
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

@@ -108,6 +108,13 @@ if ($loggedInUserRole!="admin") {
                 <i class="fas fa-fw fa-comment"></i>
                 <span>Review</span></a>
             </li> 
+
+            <!-- Nav Item - Order -->
+            <li class="nav-item">
+                <a class="nav-link" href="Tables_Order.php">
+                <i class="fas fa-fw fa-truck"></i>
+                    <span>Order</span></a>
+            </li> 
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -169,7 +176,7 @@ if ($loggedInUserRole!="admin") {
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables For Inquiry</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -220,7 +227,7 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row["user_phone"] . '</td>'; 
         echo '<td>' . $row["message_user"] . '</td>'; 
         // echo '<td>' . $row["user_role"] . '</td>'; 
-        echo '<td>' . '<a  class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"  href="mailto:' . $row["user_email"] . '">Reply</a>' . '</td>'; 
+        echo '<td>' . '<a  style="width: 100%" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"  href="mailto:' . $row["user_email"] . '">Reply</a>' . '</td>'; 
         echo '</tr>';
     }
 } 
